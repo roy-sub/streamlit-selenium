@@ -3,7 +3,7 @@ import time
 import json
 import streamlit as st
 
-os.chmod('chromedriver',0o755)
+# os.chmod('chromedriver',0o755)
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
