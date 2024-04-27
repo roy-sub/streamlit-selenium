@@ -21,7 +21,7 @@ def get_text_from_url(url):
     options = Options()
     options.add_argument("--disable-gpu")
     # Comment out the following line to run in non-headless mode
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
 
     driver = get_driver(options)
     driver.get(url)
