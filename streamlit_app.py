@@ -15,6 +15,9 @@ def run_selenium(url):
     username = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.TAG_NAME, "body"))
     )
+
+    # Wait for a short additional time to ensure the page has fully loaded
+    driver.implicitly_wait(30)
     
     content = driver.page_source
     driver.quit()
