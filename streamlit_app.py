@@ -18,7 +18,11 @@ PROXY = "proxy.soax.com:9000"
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('proxy.soax.com'.format(PROXY))
 
-driver = webdriver.Chrome('chromedriver', options=chrome_options) 
+# driver = webdriver.Chrome('chromedriver', options=chrome_options) 
+
+path = shutil.which('chromedriver')
+driver = webdriver.Chrome(options=chrome_options,service=path)
+
 driver.get("https://www.instagram.com/accounts/login/")
 
 page_title = driver.title
