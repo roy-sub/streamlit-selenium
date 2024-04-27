@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.chrome import ChromeType
 
-def get_driver():
+def get_driver(options):
     return webdriver.Chrome(
         service=Service(
             ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
@@ -22,7 +22,7 @@ def get_text_from_url(url):
     options.add_argument("--disable-gpu")
     options.add_argument("--headless")
     
-    driver = get_driver()
+    driver = get_driver(options)
     driver.get(url)
     
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
