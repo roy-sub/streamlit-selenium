@@ -28,7 +28,7 @@ def get_text_from_url(url):
   options.add_argument("--disable-gpu")
   options.add_argument("--headless")
   driver = get_driver()
-  driver.get(url)
+  driver.get("https://google.com/")
   WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
   text = driver.find_element(By.TAG_NAME, 'body').text
   driver.quit()
