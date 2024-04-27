@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager import ChromeType
+from webdriver_manager.chrome import ChromeType
 
 @st.cache(allow_output_mutation=True)
 def get_driver():
