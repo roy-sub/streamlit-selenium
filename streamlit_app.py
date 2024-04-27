@@ -12,21 +12,21 @@ def run_selenium(url):
     driver.get(url)
 
     # Wait for the entire page to be loaded
-    username = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.TAG_NAME, "body"))
-    )
-
-    # Wait for a short additional time to ensure the page has fully loaded
-    driver.implicitly_wait(30)
+    username_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "username"))) 
+    password_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "password")))
+    login_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[text()='Log in']")))
     
     content = driver.page_source
     driver.quit()
-    return content, username
+    return content, username_input, password_input, login_button
 
 st.title('Simple Web Scraping with Selenium and Streamlit')
 url = st.text_input('Enter a website URL:')
 if st.button('Scrape'):
     st.info('Scraping the website...')
-    content, username = run_selenium(url)
+    content, username_input, password_input, login_button = run_selenium(url)
     st.write(content)
-    st.write(username)
+    st.write(username_input)
+    st.write(password_input)
+    st.write(login_button)
+    st.info('')
