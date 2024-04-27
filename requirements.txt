@@ -1,0 +1,8 @@
+pandas
+streamlit
+selenium
+requests
+lxml
+countryflag
+seleniumbase
+webdriver-manager
