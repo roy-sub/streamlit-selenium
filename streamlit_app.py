@@ -18,10 +18,6 @@ def get_driver():
         options=options,
     )
 
-options = Options()
-options.add_argument("--disable-gpu")
-options.add_argument("--headless")
-
 def get_text_from_url(url):
   
   options = Options()
