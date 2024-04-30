@@ -13,17 +13,20 @@ def run_selenium(url):
 
     elements = driver.find_elements(By.CLASS_NAME, "hfpxzc")
     num_locations = len(elements)
+    name_locations = []
     
-    element = elements[0]
-    aria_label = element.get_attribute("aria-label")
+    for element in elements:
+        aria_label = element.get_attribute("aria-label")
+        if aria_label:
+            name_locations.append(aria_label)
     
     driver.quit()
-    return num_locations, aria_label
+    return num_locations, name_locations
 
 st.title('Simple Web Scraping with Selenium and Streamlit')
 url = st.text_input('Enter a website URL:')
 if st.button('Scrape'):
     st.info('Scraping the website...')
-    num_locations, aria_label = run_selenium(url)
+    num_locations, name_locations = run_selenium(url)
     st.write(num_locations)
-    st.write(aria_label) 
+    st.write(name_locations) 
