@@ -40,21 +40,21 @@ def run_selenium(url):
     
     # 6. Scrape Address
     
-    address_button = driver.find_element_by_css_selector('button[aria-label^="Address"]')
+    address_button = driver.find_element(By.CSS_SELECTOR, 'button[aria-label^="Address"]')
     address = address_button.get_attribute('aria-label').split(': ')[1]
     
     # 7. Scrape Open Hours
     
-    open_hours = driver.find_element_by_css_selector('.t39EBf.GUrTXd').get_attribute('aria-label')
+    open_hours = driver.find_element(By.CSS_SELECTOR, '.t39EBf.GUrTXd').get_attribute('aria-label')
     
     # 8. Scrape Website Link
     
-    website = driver.find_element_by_css_selector('a[aria-label^="Website"]')
+    website = driver.find_element(By.CSS_SELECTOR, 'a[aria-label^="Website"]')
     website_link = website.get_attribute('href')
     
     # 9. Scrape Phone Number
     
-    phone_button = driver.find_element_by_css_selector('button[aria-label^="Phone"]')
+    phone_button = driver.find_element(By.CSS_SELECTOR, 'button[aria-label^="Phone"]')
     phone_button_text = phone_button.text
     phone_number = phone_button_text.split('\n')[-1]
     
@@ -62,7 +62,7 @@ def run_selenium(url):
     
     reviews = []
     
-    review_elements = driver.find_elements_by_css_selector('.DUGVrf [jslog*="track:click"]')
+    review_elements = driver.find_elements(By.CSS_SELECTOR, '.DUGVrf [jslog*="track:click"]')
     review_texts = [element.get_attribute('aria-label') for element in review_elements]
     
     for review_text in review_texts:
