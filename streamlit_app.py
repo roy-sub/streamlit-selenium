@@ -35,7 +35,7 @@ def run_selenium(url):
     
     # 5. Scrape Service Options
     
-    service_option_elements = driver.find_element(by=By.XPATH, value="//div[@class='E0DTEd']//div[contains(@class, 'LTs0Rc')]//div[@aria-hidden='true']")
+    service_option_elements = driver.find_elements(by=By.XPATH, value="//div[@class='E0DTEd']//div[contains(@class, 'LTs0Rc')]//div[@aria-hidden='true']")
     service_options = [option.text for option in service_option_elements] 
     
     # 6. Scrape Address
