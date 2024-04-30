@@ -11,22 +11,19 @@ def run_selenium(url):
     driver = webdriver.Chrome(options=options)
     driver.get(url)
 
-    # Wait for the entire page to be loaded
-    username_input = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.NAME, "username"))) 
-    password_input = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.NAME, "password")))
-    login_button = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//div[text()='Log in']")))
+    elements = driver.find_elements(By.CLASS_NAME, "hfpxzc")
+    num_locations = len(elements)
     
-    content = driver.page_source
+    element = elements[0]
+    aria_label = element.get_attribute("aria-label")
+    
     driver.quit()
-    return content, username_input, password_input, login_button
+    return num_locations, aria_label
 
 st.title('Simple Web Scraping with Selenium and Streamlit')
 url = st.text_input('Enter a website URL:')
 if st.button('Scrape'):
     st.info('Scraping the website...')
-    content, username_input, password_input, login_button = run_selenium(url)
-    st.write(content)
-    st.write(username_input)
-    st.write(password_input)
-    st.write(login_button)
-    st.info('')
+    num_locations, aria_label = run_selenium(url)
+    st.write(num_locations)
+    st.write(aria_label) 
