@@ -69,7 +69,7 @@ def run_selenium(url):
         review_text = re.search('"([^"]*)"', review_text).group(1)
         reviews.append(review_text)
     
-    review_elements = driver.find_elements_by_css_selector('.wiI7pd')
+    review_elements = driver.find_elements(By.CSS_SELECTOR, '.wiI7pd')
     review_texts = [element.text for element in review_elements]
     
     for review_text in review_texts:
