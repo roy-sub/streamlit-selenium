@@ -29,10 +29,10 @@ def run_selenium(url):
     while(keepScrolling):
         
         divSideBar.send_keys(Keys.PAGE_DOWN)
-        time.sleep(15)
+        time.sleep(20)
         
         divSideBar.send_keys(Keys.PAGE_DOWN)
-        time.sleep(15)
+        time.sleep(20)
         
         html =driver.find_element(By.TAG_NAME, "html").get_attribute('outerHTML')
         
