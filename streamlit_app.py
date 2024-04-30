@@ -75,8 +75,8 @@ def run_selenium(url):
     for review_text in review_texts:
         reviews.append(review_text)
 
-    return avg_rating, total_number_of_reviews, description, service_options, service_options, address, open_hours, website_link, phone_number, reviews
-
+    return avg_rating, total_number_of_reviews, description, service_options, address, open_hours, website_link, phone_number, reviews
+    
 st.title('Simple Web Scraping with Selenium and Streamlit')
 url = st.text_input('Enter a website URL:')
 if st.button('Scrape'):
