@@ -21,21 +21,21 @@ def run_selenium(url):
     
     # 3. Scrape Total Number of ratings
     
-    total_reviews_element = driver.find_element_by_xpath("//div[contains(@class, 'F7nice')]//span[contains(@aria-label, 'reviews')]")
+    total_reviews_element = driver.find_element(by=By.XPATH, value="//div[contains(@class, 'F7nice')]//span[contains(@aria-label, 'reviews')]")
     total_number_of_reviews = total_reviews_element.text
     total_number_of_reviews = total_number_of_reviews.replace('(', '').replace(')', '') 
     
     # 4. Scrape Description
     
     try:
-        text_element = driver.find_element_by_xpath("//div[contains(@class, 'PYvSYb')]")
+        text_element = driver.find_element(by=By.XPATH, value="//div[contains(@class, 'PYvSYb')]")
         description = text_element.text
     except NoSuchElementException:
         description = ""
     
     # 5. Scrape Service Options
     
-    service_option_elements = driver.find_elements_by_xpath("//div[@class='E0DTEd']//div[contains(@class, 'LTs0Rc')]//div[@aria-hidden='true']")
+    service_option_elements = driver.find_element(by=By.XPATH, value="//div[@class='E0DTEd']//div[contains(@class, 'LTs0Rc')]//div[@aria-hidden='true']")
     service_options = [option.text for option in service_option_elements] 
     
     # 6. Scrape Address
