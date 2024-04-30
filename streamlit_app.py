@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 
 def run_selenium(url):
     options = Options()
@@ -15,7 +16,7 @@ def run_selenium(url):
 
     # 2. Scrape Average Rating
 
-    avg_rating_element = driver.find_element_by_xpath("//div[contains(@class, 'F7nice')]//span[contains(@aria-hidden, 'true')]")
+    avg_rating_element = driver.find_element(by=By.XPATH, value="//div[contains(@class, 'F7nice')]//span[contains(@aria-hidden, 'true')]")
     avg_rating = avg_rating_element.text 
     
     # 3. Scrape Total Number of ratings
