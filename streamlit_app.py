@@ -41,13 +41,11 @@ def run_selenium(url):
     time.sleep(2)
     driver.quite()
 
-    return len(sub_places), sub_places
+    return sub_places
     
 st.title('Simple Web Scraping with Selenium and Streamlit')
 url = st.text_input('Enter a website URL:')
 if st.button('Scrape'):
     st.info('Scraping the website...')
-    num_entries, entries = run_selenium(url)
-    st.write(num_entries)
-    st.write(entries)
-    
+    sub_places = run_selenium(url)
+    st.write(sub_places)    
