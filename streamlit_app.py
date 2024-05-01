@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 
 def run_selenium(url):
     options = Options()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
     driver.get(url)
     time.sleep(5)
