@@ -19,8 +19,7 @@ def run_selenium(url):
 
     # Scroll Down
     
-    query = "Curry houses in Oxford"
-    driver.find_element(By.CSS_SELECTOR,f"div[aria-label='Results for {query}']") 
+    driver.find_elements(By.CLASS_NAME, "m6QErb.DxyBCb.kA9KIf.dS8AEf.ecceSd.QjC7t") 
 
     # Scrape
 
