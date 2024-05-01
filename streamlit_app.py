@@ -18,21 +18,21 @@ def run_selenium(url):
 
     # Scroll Down
 
-    query = "Curry houses in Oxford"
+    # query = "Curry houses in Oxford"
     
-    divSideBar=driver.find_element(By.CSS_SELECTOR,f"div[aria-label='Results for {query}']")
+    # divSideBar=driver.find_element(By.CSS_SELECTOR,f"div[aria-label='Results for {query}']")
 
-    keepScrolling=True
-    while(keepScrolling):
-        try:
-            divSideBar.send_keys(Keys.PAGE_DOWN)
-            time.sleep(5)
-            html = driver.find_element(By.TAG_NAME, "html").get_attribute('outerHTML')
-            if "You've reached the end of the list." in html:
-                keepScrolling = False
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            continue
+    # keepScrolling=True
+    # while(keepScrolling):
+    #     try:
+    #         divSideBar.send_keys(Keys.PAGE_DOWN)
+    #         time.sleep(5)
+    #         html = driver.find_element(By.TAG_NAME, "html").get_attribute('outerHTML')
+    #         if "You've reached the end of the list." in html:
+    #             keepScrolling = False
+    #     except Exception as e:
+    #         print(f"An error occurred: {e}")
+    #         continue
 
     # Scrape
 
