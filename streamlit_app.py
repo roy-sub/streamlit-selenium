@@ -19,11 +19,7 @@ def run_selenium(url):
 
     # Scroll Down
     
-    # driver.find_elements(By.CLASS_NAME, "m6QErb.DxyBCb.kA9KIf.dS8AEf.ecceSd.QjC7t") 
-
-    # Wait for the elements to be loaded
-    wait = WebDriverWait(driver, 10)
-    test = wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, "m6QErb.DxyBCb.kA9KIf.dS8AEf.ecceSd.QjC7t")))
+    driver.find_elements(By.CSS_SELECTOR,"div[aria-label='Results for Curry houses in Oxford']")
 
     # Scrape
 
