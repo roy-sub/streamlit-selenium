@@ -20,7 +20,7 @@ def run_selenium(url):
     # Scroll Down
 
     query = "Curry houses in Oxford"
-    divSideBar=driver.find_element(By.CSS_SELECTOR,f"div[aria-label='Results for {query}']")
+    divSideBar=driver.find_element(By.CSS_SELECTOR,f'div[aria-label="Results for Curry houses in Oxford"]')
 
     divSideBar.send_keys(Keys.PAGE_DOWN)
     time.sleep(5)
