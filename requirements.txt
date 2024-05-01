@@ -1,6 +1,6 @@
 pandas
 streamlit
-selenium
+selenium==3.141.0
 requests
 lxml
 countryflag
