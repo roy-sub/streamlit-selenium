@@ -15,6 +15,7 @@ def run_selenium(url):
     options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
     driver.get(url)
+    time.sleep(5)
 
     # Scroll Down
 
@@ -23,6 +24,7 @@ def run_selenium(url):
     divSideBar=driver.find_element(By.CSS_SELECTOR,f"div[aria-label='Results for {query}']")
 
     keepScrolling=True
+    
     while(keepScrolling):
         try:
             divSideBar.send_keys(Keys.PAGE_DOWN)
