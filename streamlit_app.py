@@ -34,9 +34,6 @@ def run_selenium(url):
         sub_place = {"title": aria_label, "href": href}
         sub_places.append(sub_place)
 
-    time.sleep(2)
-    driver.quite()
-
     return sub_places
     
 st.title('Simple Web Scraping with Selenium and Streamlit')
