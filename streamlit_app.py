@@ -24,11 +24,15 @@ def run_selenium(url):
 
     keepScrolling=True
     while(keepScrolling):
-        divSideBar.send_keys(Keys.PAGE_DOWN)
-        time.sleep(5)
-        html =driver.find_element(By.TAG_NAME, "html").get_attribute('outerHTML')
-        if(html.find("You've reached the end of the list.")!=-1):
-            keepScrolling=False
+        try:
+            divSideBar.send_keys(Keys.PAGE_DOWN)
+            time.sleep(5)
+            html = driver.find_element(By.TAG_NAME, "html").get_attribute('outerHTML')
+            if "You've reached the end of the list." in html:
+                keepScrolling = False
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            continue
 
     # Scrape
 
