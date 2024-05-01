@@ -19,9 +19,18 @@ def run_selenium(url):
 
     # Scroll Down
 
-    scroll_script = "window.scrollTo(0, document.body.scrollHeight);"
-    driver.execute_script(scroll_script)
-    time.sleep(5)
+    last_height = driver.execute_script("return document.documentElement.scrollHeight")
+    while True:
+        # Scroll to the bottom of page
+        driver.execute_script("window.scrollTo(0, arguments[0]);", last_height)
+        # Wait for new videos to show up
+        time.sleep(1)
+        # Calculate new document height and compare it with last height
+        new_height = driver.execute_script("return document.documentElement.scrollHeight")
+        if new_height == last_height:
+            break
+        last_height = new_height
+    time.sleep(2)
 
     # Scrape
 
