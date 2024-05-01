@@ -19,22 +19,17 @@ def run_selenium(url):
 
     # Scroll Down
 
-    query = "Curry houses in Oxford"
-    
-    divSideBar=driver.find_element(By.CSS_SELECTOR,f"div[aria-label='Results for {query}']")
+    last_height = driver.execute_script("return document.body.scrollHeight")
+    while True:
+        time.sleep(5)
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    keepScrolling=True
-    
-    while(keepScrolling):
-        try:
-            divSideBar.send_keys(Keys.PAGE_DOWN)
-            time.sleep(5)
-            html = driver.find_element(By.TAG_NAME, "html").get_attribute('outerHTML')
-            if "You've reached the end of the list." in html:
-                keepScrolling = False
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            continue
+        time.sleep(5)
+        new_height = driver.execute_script("return document.body.scrollHeight")
+
+        if new_height == last_height:
+            break
+        last_height = new_height
 
     # Scrape
 
@@ -48,6 +43,9 @@ def run_selenium(url):
         
         sub_place = {"title": aria_label, "href": href}
         sub_places.append(sub_place)
+
+    time.sleep(2)
+    driver.quite()
 
     return len(sub_places), sub_places
     
