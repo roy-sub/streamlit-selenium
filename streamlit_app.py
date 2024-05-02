@@ -19,7 +19,7 @@ def run_selenium(url):
 
     # Scroll Down
     
-    driver.find_elements(By.CSS_SELECTOR,"div[aria-label='Results for Curry houses in Oxford']")
+    driver.find_elements(By.CSS_SELECTOR,"div[aria-label*='Results for Curry houses in Oxford']")
 
     # Scrape
 
